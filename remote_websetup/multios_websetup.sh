@@ -1,14 +1,5 @@
 #!/bin/bash
 
-# Exit on error 
-set -e
-
-# Log file path
-log_file="/var/log/web_setup.log"
-
-# Redirect all output to the log file
-exec &> "$log_file" 
-
 TEMPDIR="/tmp/webfiles"
 ART_NAME="2098_health"
 URL="https://www.tooplate.com/zip-templates/2098_health.zip"
@@ -84,5 +75,4 @@ else
     sudo systemctl status $SVC
     ls -l /var/www/html
 
-    echo "### Script completed. Check the log file for the details: $log_file"
 fi	
