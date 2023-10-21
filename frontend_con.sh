@@ -7,12 +7,13 @@ log_file="/var/log/frontend_configuration.log"
 exec &> "$log_file" 
 
 # Read .env file and fill variables.
-company_dir=$(cat .env | grep company_dir | awk -F'=' '{print $2}' | tr -d '"')
+company_dir=$(cat .env | grep COMPANY_DIR | awk -F'=' '{print $2}')
 
-project_dir=$(cat .env | grep project_dir | awk -F'=' '{print $2}' | tr -d '"')
+project_dir=$(cat .env | grep PROJECT_DIR | awk -F'=' '{print $2}')
 
 hostname=$(cat /etc/hostname)
 
+echo $company_dir
 #: '
 if [ $? == 0 ]
     then
